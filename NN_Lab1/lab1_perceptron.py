@@ -62,9 +62,8 @@ while True:
         pr_out, hidden_layer = predict(xi) 
         # новый вес = старый вес + eta * признак * разница между ответом перцептрона и правильным
         Wout[1:] = Wout[1:] + ((eta * (target - pr_out)) * hidden_layer).reshape(-1, 1)
-        Wout[0] = Wout[0] + eta * (target - pr_out)
-
-
+        Wout[0] = Wout[0] + eta * (target - pr_out)\
+        
     pr, hidden = predict(X)
     
     convergence = sum(pr-y.reshape(-1, 1))
