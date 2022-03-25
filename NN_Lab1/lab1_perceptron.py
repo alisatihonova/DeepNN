@@ -75,5 +75,3 @@ while True:
             print('я необучаем :(')
         break
     WoutOld = Wout
-
-# далее оформляем все это в виде отдельного класса neural.py
