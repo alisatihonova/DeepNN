@@ -48,7 +48,6 @@ def predict(Xp):
 # hidden_predict - выходы нейронов первого слоя они же признаки нейрона 2ого слоя, веса которого мы корректируем
 
 
-# not original content
 eta = 0.01
 # сделал WoutOld - вектор старых весов выходного слоя - и рандомно его инициализировал
 WoutOld =  np.random.randint(0, 2, size = (1+hiddenSizes,outputSize)).astype(np.float64)
