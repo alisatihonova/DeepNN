@@ -27,7 +27,7 @@ outputSize = 1 if len(y.shape) else y.shape[1] # количество выход
 NN = Perceptron(inputSize, hiddenSizes, outputSize)
 
 # для обучения передаем обучающую выборку, количество итераций и eta какую-нибудь
-NN.train(X, y, n_iter=10, eta = 0.01)
+NN.train(X, y, eta = 0.01)
 
 y = df.iloc[:, 4].values
 y = np.where(y == "Iris-setosa", 1, -1)
