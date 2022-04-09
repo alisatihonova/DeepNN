@@ -23,8 +23,8 @@ class Perceptron:
         WoutList = self.Wout.tolist()
         for i in range (len(self.WoutOld) - 1, len(self.WoutOld) // 2, -1):
             if str(self.WoutOld[i:] + [WoutList])[1:-1] in str(self.WoutOld[:i])[1:-1]:
-                return True
-        return False
+                return False
+        return True
 
     def train(self, X, y, n_iter=10, eta = 0.01):
         for i in range(n_iter):
