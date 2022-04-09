@@ -20,14 +20,14 @@ class Perceptron:
 
     #функция для нахождения цикла
     def looping (self):
-        WoutList = self.Wout.tolist()
-        for i in range (len(self.WoutOld) - 1, len(self.WoutOld) // 2, -1):
+        WoutList = self.Wout.tolist() 
+        for i in range (len(self.WoutOld) -1, len(self.WoutOld) // 2 , -1):
             if str(self.WoutOld[i:] + [WoutList])[1:-1] in str(self.WoutOld[:i])[1:-1]:
                 return False
         return True
 
-    def train(self, X, y, n_iter=10, eta = 0.01):
-        for i in range(n_iter):
+    def train(self, X, y, eta):
+        while True:
             print(self.Wout.reshape(1, -1))
             for xi, target, j in zip(X, y, range(X.shape[0])):
                 pr, hidden = self.predict(xi)
@@ -37,7 +37,7 @@ class Perceptron:
             #проверяем, есть ли ошибки
             pr, hidden = self.predict(X)
             convergence = sum(pr-y.reshape(-1, 1))
-            
+            print('errors = ', convergence)
             #проверяем есть ли зацикливание
             loop = self.looping()
             if(convergence == 0 or loop == 0):
@@ -47,3 +47,4 @@ class Perceptron:
                     print('я необучаем :(') #произошло зацикливание
                 return self
             self.WoutOld.append(self.Wout.tolist())
+        
