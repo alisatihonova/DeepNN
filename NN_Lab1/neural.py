@@ -47,4 +47,3 @@ class Perceptron:
                     print('я необучаем :(') #произошло зацикливание
                 return self
             self.WoutOld.append(self.Wout.tolist())
-        
